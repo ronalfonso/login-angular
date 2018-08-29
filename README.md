@@ -1,5 +1,6 @@
 LoginAngular
-1.- En el proyecto se crearon 2 componentes.
+
+1.- En el proyecto se crearon 2 componentes:
     1.- Login.
     2.- Home.
     
