@@ -1,0 +1,33 @@
+<div class="header">
+  <h1>Administrador</h1>
+  <form class="search-bar" [formGroup]="form" (ngSubmit)="searchBookings()">
+    <div class="inputs">
+        <input class="text" formControlName="email" type="email" placeholder="Correo del usuario">
+        <input class="cbx hidden" formControlName="current" type="checkbox" id="current">
+        <label class="lbl" for="current"></label>
+    </div>
+    <button type="submit">Buscar</button>
+  </form>
+</div>
+<div class="body">
+  <input class="filter" [(ngModel)]="searchTerm" (input)="setFilteredItems()" type="text" placeholder="Filtrar por ID">
+  <div class="list">
+    <div *ngIf="bookings.length > 0  || firstSearch; else noResults">
+      <div class="item" *ngFor="let booking of bookings">
+        <p>BookingId: {{booking.bookingId}}</p>
+        <p>Cliente: {{booking.tutenUserClient.firstName}} {{booking.tutenUserClient.lastName}}</p>
+        <p>Fecha de Creacion</p>
+        <p>{{booking.bookingTime | date: 'dd-MM-yyyy'}}</p>
+        <p>Direccion</p>
+        <p>{{ booking.locationId.streetAddress }}</p>
+        <p>Precio {{booking.bookingPrice}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <div class="item">
+    No se encontraron registros asociados a ese correo.
+  </div>
+</ng-template>

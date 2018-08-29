@@ -1,0 +1,8 @@
+<form class="login-form" [formGroup]="form" (ngSubmit)="login()">
+  <div class="box">
+    <h1>LOGIN</h1>
+    <input formControlName="email" type="email" placeholder="Correo">
+    <input formControlName="password" type="password" placeholder="Contrasena">
+    <button type="submit">Iniciar Sesion</button>
+  </div>
+</form>
